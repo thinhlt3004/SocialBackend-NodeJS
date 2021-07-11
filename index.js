@@ -68,8 +68,8 @@ app.post("/api/uploads/person", uploadPerson.single("file"), (req, res) => {
     console.error(error);
   }
 });
-app.use("/images", express.static(path.join(__dirname, "public/images")));
 
+app.use('/', indexRouter);
 app.use("/api/conversations", conversationRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
@@ -78,8 +78,8 @@ app.use("/api/messages", messageRoute);
 app.use("/api/notifications", notificationsRoute);
 app.use("/api/groupconversation",groupConversationRoute);
 app.use("/api/sharepost",sharePostRoute);
-app.use('/', indexRouter);
 
+app.use("/images", express.static(path.join(__dirname, "public/images")));
 
 app.listen(8800, () => {
   console.log("Backend server is running!");
