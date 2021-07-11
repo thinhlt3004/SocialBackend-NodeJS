@@ -8,6 +8,7 @@ const morgan = require("morgan");
 const multer = require("multer");
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
+const indexRouter = require('./routes/index');
 const postRoute = require("./routes/posts");
 const conversationRoute = require("./routes/conversations");
 const messageRoute = require("./routes/messages");
@@ -77,7 +78,7 @@ app.use("/api/messages", messageRoute);
 app.use("/api/notifications", notificationsRoute);
 app.use("/api/groupconversation",groupConversationRoute);
 app.use("/api/sharepost",sharePostRoute);
-
+app.use('/', indexRouter);
 
 
 app.listen(8800, () => {
